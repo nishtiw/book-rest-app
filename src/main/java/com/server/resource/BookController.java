@@ -2,6 +2,7 @@ package com.server.resource;
 
 import com.server.entity.Book;
 import com.server.service.BookService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ public class BookController {
 
 //    Get request for all books Handler
     @GetMapping("/books")
+    @ApiOperation("Returns a list of all the books")
     public ResponseEntity<List<Book>> getBooks() {
         List<Book> list = this.bookService.getAllBooks();
         if(list.size()<=0)
